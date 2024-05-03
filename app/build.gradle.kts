@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    id("org.jetbrains.kotlin.plugin.parcelize")
 }
 
 android {
@@ -48,9 +50,7 @@ android {
         }
     }
     buildFeatures.viewBinding = true
-    buildFeatures.dataBinding = true
     viewBinding.enable = true
-    viewBinding.isEnabled = true
 }
 
 dependencies {
@@ -73,4 +73,7 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("androidx.preference:preference-ktx:1.2.1")
 }
